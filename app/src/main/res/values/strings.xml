@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">供应链管理</string>
+    <string name="title_activity_send">发货管理</string>
+    <string name="title_activity_buy">采购管理</string>
+    <string name="title_activity_get">交货</string>
+    <string name="title_activity_report_forms">报表功能</string>
+    <string name="title_activity_login">登录</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">用户名</string>
+    <string name="prompt_password">密码</string>
+    <string name="action_sign_in">登录</string>
+
+    <string name="camera">拍照</string>
+    <string name="photo">从手机相册中选择</string>
+</resources>

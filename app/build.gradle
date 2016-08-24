@@ -1,0 +1,56 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
+
+    defaultConfig {
+        applicationId "com.yhkj.jskf.supplychainmanager"
+        minSdkVersion 14
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets.main {
+        jniLibs.srcDirs = ['libs']  // <-- Set your folder here!
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.1.1'
+    compile 'com.android.support:recyclerview-v7:24.1.1'
+    compile 'com.android.support:design:24.1.1'
+    compile 'com.dinuscxj:recyclerrefreshlayout:1.0.1'
+
+    //简化findViewById
+    compile 'com.jakewharton:butterknife:5.1.1'
+    compile files('libs/BaiduLBS_Android.jar')
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'org.slf4j:slf4j-android:1.7.7'
+    compile 'com.orhanobut:logger:1.4'
+    compile 'org.greenrobot:eventbus:3.0.0'
+
+    //以下为OkHtpp的封装
+    compile 'com.lzy.net:okhttputils:1.7.2'  //可以单独使用，不需要依赖下方的扩展包
+    compile 'com.lzy.net:okhttpserver:1.0.1' //扩展了下载管理和上传管理，根据需要添加
+
+    compile 'com.lzy.net:okhttputils:+'  //版本号使用 + 可以自动引用最新版
+    compile 'com.lzy.net:okhttpserver:+' //版本号使用 + 可以自动引用最新版
+
+
+//    compile 'com.loopj.android:android-async-http:1.4.9'
+//    compile 'com.squareup.okhttp:okhttp:2.0.0'
+//    compile 'com.squareup.dagger:dagger:1.2.1'
+//    compile 'com.squareup.okio:okio:1.9.0'
+//    compile 'io.reactivex:rxandroid:1.2.1'
+//    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+//    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+}
