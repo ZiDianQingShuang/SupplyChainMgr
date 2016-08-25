@@ -12,6 +12,7 @@ import com.lzy.okhttputils.OkHttpUtils;
 import com.lzy.okhttputils.cache.CacheEntity;
 import com.lzy.okhttputils.cache.CacheMode;
 import com.lzy.okhttputils.cookie.store.PersistentCookieStore;
+import com.lzy.okhttputils.model.HttpHeaders;
 import com.yhkj.jskf.supplychainmanager.entity.PositionDetails;
 import com.yhkj.jskf.supplychainmanager.utils.ActivityUtils;
 import com.yhkj.jskf.supplychainmanager.utils.CrashHandler;
@@ -163,6 +164,9 @@ public class MyApplication extends Application {
 
 
     private void initOkHttpUtilsConfig() {
+        HttpHeaders headers = new HttpHeaders();
+        //headers.put("contentType","text/plain;charset=utf-8");
+
         //以下设置的所有参数是全局参数,同样的参数可以在请求的时候再设置一遍,那么对于该请求来讲,请求中的参数会覆盖全局参数
         //好处是全局参数统一,特定请求可以特别定制参数
         try {
@@ -185,7 +189,7 @@ public class MyApplication extends Application {
 
                     //如果不想让框架管理cookie,以下不需要
 //                .setCookieStore(new MemoryCookieStore())                //cookie使用内存缓存（app退出后，cookie消失）
-                    .setCookieStore(new PersistentCookieStore());          //cookie持久化存储，如果cookie不过期，则一直有效
+                    .setCookieStore(new PersistentCookieStore())          //cookie持久化存储，如果cookie不过期，则一直有效
 
             //可以设置https的证书,以下几种方案根据需要自己设置,不需要不用设置
 //                    .setCertificates()                                  //方法一：信任所有证书
@@ -201,7 +205,7 @@ public class MyApplication extends Application {
 //                })
 
 //                    //这两行同上,不需要就不要传
-//                    .addCommonHeaders(headers)                                         //设置全局公共头
+                    .addCommonHeaders(headers)    ;                                     //设置全局公共头
 //                    .addCommonParams(params);                                          //设置全局公共参数
         } catch (Exception e) {
             e.printStackTrace();

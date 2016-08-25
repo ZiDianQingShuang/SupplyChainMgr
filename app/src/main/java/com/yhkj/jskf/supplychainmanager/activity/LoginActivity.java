@@ -18,12 +18,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.lzy.okhttputils.OkHttpUtils;
 import com.lzy.okhttputils.callback.StringCallback;
 import com.yhkj.jskf.supplychainmanager.MainActivity;
 import com.yhkj.jskf.supplychainmanager.R;
 import com.yhkj.jskf.supplychainmanager.activity.settings.SettingsActivity;
 import com.yhkj.jskf.supplychainmanager.utils.ActivityUtils;
+import com.yhkj.jskf.supplychainmanager.utils.NetUtils;
 import com.yhkj.jskf.supplychainmanager.utils.ToastUtility;
 
 import java.util.HashMap;
@@ -177,16 +177,15 @@ public class LoginActivity extends Activity {
 //            }
 //        });
 
-//        HashMap<String, String> params = new HashMap<>();
-//        params.put("username",pwd);
-        OkHttpUtils.post("http://192.168.1.81:8080/user/login").params("username", username)
-                .execute(new StringCallback() {
-                    @Override
-                    public void onResponse(boolean isFromCache, String s, Request request, @Nullable Response response) {
-                        ToastUtility.showToast(s);
-                    }
-                });
+        HashMap<String, String> params = new HashMap<>();
+        params.put("username",username);
 
+        NetUtils.getString(NetUtils.API.LOGIN, params, new StringCallback() {
+            @Override
+            public void onResponse(boolean isFromCache, String s, Request request, @Nullable Response response) {
+                ToastUtility.showToast(s);
+            }
+        });
 
     }
 
