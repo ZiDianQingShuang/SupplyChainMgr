@@ -1,11 +1,8 @@
 package com.yhkj.jskf.supplychainmanager;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
-
-import com.yhkj.jskf.supplychainmanager.activity.LoginActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
 //        ToastUtility.showToast(tv_helloworld.toString());
 
 
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, LoginActivity.class);
+//        startActivity(intent);
 
 
 

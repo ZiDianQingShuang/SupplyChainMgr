@@ -9,9 +9,41 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.yhkj.jskf.supplychainmanager.MainActivity">
 
-    <TextView
-        android:id="@+id/tv_helloworld"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <RadioGroup
+
+        android:id="@+id/rg_bottom"
+        style="@style/match_wrap"
+        android:layout_alignParentBottom="true"
+        android:background="#000"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <!-- 屏蔽 基本分类功能 -->
+
+        <RadioButton
+            android:id="@+id/tv_cgbasic"
+            style="@style/radio_category"
+            android:checked="true"
+            android:text="采集" />
+
+
+        <RadioButton
+            android:id="@+id/tv_cgfactory"
+            style="@style/radio_category"
+            android:text="报表" />
+
+
+        <RadioButton
+            android:id="@+id/tv_cgcustomer"
+            style="@style/radio_category"
+            android:text="设置" />
+    </RadioGroup>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/rg_bottom"
+        android:layout_below="@+id/headTitleView"></android.support.v4.view.ViewPager>
 </RelativeLayout>
